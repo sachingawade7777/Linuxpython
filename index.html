@@ -4,13 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Video Downloader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 5px #ff0057, 0 0 10px #ff0057; }
+            50% { text-shadow: 0 0 20px #ff0057, 0 0 30px #ff0057; }
+            100% { text-shadow: 0 0 5px #ff0057, 0 0 10px #ff0057; }
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 0, 87, 0.3);
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            z-index: 2;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff0057;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3366;
+        }
+
+        .music-bars {
+            position: absolute;
+            bottom: 60px;
+            display: flex;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .bar {
+            width: 5px;
+            height: 20px;
+            background: #ff0057;
+            animation: bounce 1s infinite ease-in-out;
+        }
+
+        .bar:nth-child(2) { animation-delay: 0.2s; }
+        .bar:nth-child(3) { animation-delay: 0.4s; }
+        .bar:nth-child(4) { animation-delay: 0.6s; }
+        .bar:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(2); }
+        }
+
+        .background-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+            white-space: pre-wrap;
+            line-height: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 1;
+            background-repeat: repeat;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9rem;
+            color: #888;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
+    <div class="background-text">
+        Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles · Sachin Tiles
+    </div>
+
     <h1>YouTube Video Downloader</h1>
-    <form method="POST" action="/download">
+    <form method="GET" action="/download">
         <label for="url">Enter YouTube Video URL:</label>
         <input type="text" id="url" name="url" required>
         <button type="submit">Download</button>
     </form>
+
+    <div class="music-bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <footer>© sachingawade@2025</footer>
 </body>
 </html>
